@@ -1,0 +1,56 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+header,
+.navbar {
+    min-height: 10vh;
+}
+
+main {
+    min-height: 80vh;
+    background-color: aliceblue;
+}
+
+footer {
+    display: flex;
+    align-items: center;
+    background-color: rgb(187, 184, 184);
+    max-height: 10vh;
+}
+
+.img-logo {
+    height: 30px;
+}
+
+.img-foot {
+    height: 5vh;
+}
+
+.card {
+    margin: 10px;
+}
+
+.form {
+    background-color: beige;
+    border-radius: 5px;
+}
+
+.div-lis {
+    border: 2px solid black;
+}
+
+.div-card {
+    border: 2px dotted black;
+    border-radius: 5px;
+    height: 35vh;
+}
+
+/* .div-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: blue;
+    width: 50vw;
+} */
