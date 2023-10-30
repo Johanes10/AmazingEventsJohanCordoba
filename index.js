@@ -47,7 +47,7 @@ function crearCard(arrayEvents) {
                                     <p class="card-text text-truncate">${evento.description}</p>
                                     <div class="d-flex justify-content-between">
                                     <p>$${evento.price}</p>
-                                    <a href="#" class="btn btn-outline-dark">Details</a>`
+                                    <a href="./details.html?name=${evento.name}" class="btn btn-outline-dark">Details</a>`
       console.log(card);
       contenedor.appendChild(card);
     })
