@@ -12,7 +12,8 @@ for (let event of events) {
                         <p class="card-text text-truncate">${event.description}</p>
                         <div class="d-flex justify-content-between">
                         <p>$${event.price}</p>
-                        <a href="#" class="btn btn-outline-dark">Details</a>`
+                        <ahref="./details.html?id=${usuario.id}" class="btn btn-outline-dark">Details</a>`
+        // <a href="./details.html?id=${usuario.id}" class="btn btn-primary">More info</a>
         pastEvents.appendChild(card)
     }
 }
