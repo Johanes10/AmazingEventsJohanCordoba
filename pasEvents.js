@@ -29,7 +29,7 @@ function crearCard(arrayEvents) {
 
             const comparisonDate = new Date("2023-01-01");
 
-            if (eventDate >= comparisonDate) {
+            if (eventDate <= comparisonDate) {
                 const card = document.createElement("div");
                 card.classList.add("card");
                 card.style.width = "18rem";
