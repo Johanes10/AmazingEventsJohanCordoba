@@ -1,9 +1,10 @@
-export let urlApi = "https://mindhub-xj03.onrender.com/api/amazing"
+export const urlApi = "https://mindhub-xj03.onrender.com/api/amazing"
 
 const contenedor = document.getElementById("contenedorCards")
 const checkbox = document.getElementById("contenedorCheckbox")
 const upcoming = document.getElementById("contenedorUpcomingEvents")
 const pastEvents = document.getElementById("contenedorPastEvents")
+const contenedorDetails = document.getElementById("contenedorDetails");
 
 
 export function pintarChecks(arrayCategorys) {
@@ -111,15 +112,53 @@ export function crearCardPast(arrayEvents) {
 }
 
 
+
+
+export function crearDetails(arrayEvents) {
+    const urlParams = new URLSearchParams(window.location.search);
+    const name = urlParams.get("name");
+    arrayEvents.find(evento => {
+        if (evento.name === name) {
+            console.log(evento);
+            let card = document.createElement("div");
+            card.classList.add("card");
+            card.style.width = "70rem";
+            card.style.height = "25.7rem";
+
+            card.innerHTML = `<div class="card-body gap-1 d-flex flex-row aling-items-center h-75">
+                <img src="${evento.image}"  class="card-img-top h-100 w-75 " alt="...">
+                <div class="card-body gap-1 d-flex flex-column justify-content-start h-75">
+                <h5 class="card-title">${evento.name}</h5>
+                <p class="card-text">${evento.description}</p>
+                <p class="text-start d-flex"> <b>Category:</b> ${evento.category}</p>
+                <p class="text-start d-flex"><b>Place:</b> ${evento.place}</p>
+                <p class="text-start d-flex"><b>Capacity:</b> ${evento.capacity}</p>
+                <p class="text-start d-flex"><b>Assistance:</b> ${evento.assistance}</p>
+                <p class="text-start d-flex"><b>Price:</b> $${evento.price}</p>
+                </div>
+            </div>`;
+            contenedorDetails.appendChild(card);
+
+        }
+
+
+    })
+
+
+}
+
+
+
+
 export function superFiltro(arrayEvents) {
     let filtro1 = filtrarEventos(arrayEvents)
     let filtro2 = filtrarPorTexto(filtro1)
     crearCard(filtro2)
 }
-buscador.addEventListener("keyup", () => {
-    superFiltro(arrayEvent)
+// buscador.addEventListener("keyup", () => {
+//     superFiltro(arrayEvent)
 
-})
-checkbox.addEventListener('change', () => {
-    superFiltro(arrayEvent)
-})
+// })
+// checkbox.addEventListener('change', () => {
+//     superFiltro(arrayEvent)
+// })

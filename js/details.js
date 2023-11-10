@@ -1,9 +1,10 @@
-import { crearDetails, url } from "./modules/funciones.js";
+import { crearDetails, urlApi } from "../modules/funciones.js";
 
 
-fetch(url).then(response => response.json()).then(data => {
-  const products = data.products
-  console.log(products);
-  crearDetails(products)
+fetch(urlApi).then(response => response.json()).then(data => {
+  const events = data.events
+  console.log("Johanes");
+  console.log(events);
+  crearDetails(events)
 
 })
