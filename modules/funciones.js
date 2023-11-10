@@ -3,6 +3,7 @@ export const urlApi = "https://mindhub-xj03.onrender.com/api/amazing"
 const contenedor = document.getElementById("contenedorCards")
 const checkbox = document.getElementById("contenedorCheckbox")
 const upcoming = document.getElementById("contenedorUpcomingEvents")
+const buscador = document.getElementById("buscador")
 const pastEvents = document.getElementById("contenedorPastEvents")
 const contenedorDetails = document.getElementById("contenedorDetails");
 
@@ -28,7 +29,7 @@ export function filtrarEventos(arrayEvents) {
         return arrayEvents.filter(evento => checked.includes(evento.category))
     } return arrayEvents
 }
-function filtrarPorTexto(arrayEvents) {
+export function filtrarPorTexto(arrayEvents) {
     return arrayEvents.filter(evento => evento.name.toLowerCase().includes(buscador.value.toLowerCase()))
 }
 export function crearCard(arrayEvents) {
@@ -47,7 +48,7 @@ export function crearCard(arrayEvents) {
                                       <div class="d-flex justify-content-between">
                                       <p>$${evento.price}</p>
                                       <a href="./details.html?name=${evento.name}" class="btn btn-outline-dark">Details</a>`
-            console.log(card);
+            // console.log(card);
             contenedor.appendChild(card);
         })
     }
@@ -150,11 +151,11 @@ export function crearDetails(arrayEvents) {
 
 
 
-export function superFiltro(arrayEvents) {
-    let filtro1 = filtrarEventos(arrayEvents)
-    let filtro2 = filtrarPorTexto(filtro1)
-    crearCard(filtro2)
-}
+// export function superFiltro(arrayEvents) {
+//     let filtro1 = filtrarEventos(arrayEvents)
+//     let filtro2 = filtrarPorTexto(filtro1)
+//     crearCard(filtro2)
+// }
 // buscador.addEventListener("keyup", () => {
 //     superFiltro(arrayEvent)
 
@@ -162,3 +163,11 @@ export function superFiltro(arrayEvents) {
 // checkbox.addEventListener('change', () => {
 //     superFiltro(arrayEvent)
 // })
+
+
+export function superFiltro(arrayEvents) {
+    let filtro = filtrarEventos(arrayEvents)
+    let filtro2 = filtrarPorTexto(filtro)
+    console.log(filtro2);
+    crearCard(filtro2)
+}

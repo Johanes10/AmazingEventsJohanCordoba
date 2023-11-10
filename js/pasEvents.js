@@ -7,4 +7,11 @@ fetch(urlApi).then(respuesta => respuesta.json()).then(data => {
     filtrarEventos(arrayEvents)
     crearCardPast(arrayEvents)
     superFiltro(arrayEvents)
+    buscador.addEventListener("keyup", () => {
+        superFiltro(arrayEvents)
+
+    })
+    contenedorCheckbox.addEventListener('change', () => {
+        superFiltro(arrayEvents)
+    })
 })

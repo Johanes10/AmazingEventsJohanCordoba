@@ -2,9 +2,16 @@ import { urlApi, pintarChecks, filtrarEventos, crearCardUpcoming, superFiltro } 
 
 fetch(urlApi).then(respuesta => respuesta.json()).then(data => {
     console.log(data);
-    const arrayEvents = data.events
-    pintarChecks(arrayEvents)
-    filtrarEventos(arrayEvents)
-    crearCardUpcoming(arrayEvents)
-    superFiltro(arrayEvents)
+    const events = data.events
+    pintarChecks(events)
+    filtrarEventos(events)
+    crearCardUpcoming(events)
+    superFiltro(events)
+    buscador.addEventListener("keyup", () => {
+        superFiltro(events)
+
+    })
+    contenedorCheckbox.addEventListener('change', () => {
+        superFiltro(events)
+    })
 })
