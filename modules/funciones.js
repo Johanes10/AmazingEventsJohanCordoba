@@ -84,9 +84,9 @@ export function crearCardUpcoming(arrayEvents) {
 }
 export function crearCardPast(arrayEvents) {
     if (arrayEvents.length === 0) {
-        contenedorPastEvents.innerHTML = `<h2>No se encontró su búsqueda</h2>`;
+        pastEvents.innerHTML = `<h2>No se encontró su búsqueda</h2>`;
     } else {
-        contenedorPastEvents.innerHTML = "";
+        pastEvents.innerHTML = "";
         arrayEvents.forEach(evento => {
             const eventDate = new Date(evento.date);
 
@@ -106,7 +106,7 @@ export function crearCardPast(arrayEvents) {
                 <a href="./details.html?name=${evento.name}" class="btn btn-outline-dark">Details</a>
               </div>
             `;
-                contenedorPastEvents.appendChild(card);
+                pastEvents.appendChild(card);
             }
         });
     }
@@ -171,3 +171,17 @@ export function superFiltro(arrayEvents) {
     console.log(filtro2);
     crearCard(filtro2)
 }
+export function superFiltroPast(arrayEvents) {
+    let filtro = filtrarEventos(arrayEvents)
+    let filtro2 = filtrarPorTexto(filtro)
+    console.log(filtro2);
+    crearCardPast(filtro2)
+}
+export function superFiltroUpcoming(arrayEvents) {
+    let filtro = filtrarEventos(arrayEvents)
+    let filtro2 = filtrarPorTexto(filtro)
+    console.log(filtro2);
+    crearCardUpcoming(filtro2)
+}
+
+

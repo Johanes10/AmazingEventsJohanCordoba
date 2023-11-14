@@ -1,18 +1,18 @@
-import { urlApi, pintarChecks, filtrarEventos, crearCardUpcoming, superFiltroUpcoming } from "../modules/funciones.js";
+import { urlApi, pintarChecks, filtrarEventos, crearCardPast, superFiltroPast } from "../modules/funciones.js";
 
 fetch(urlApi).then(respuesta => respuesta.json()).then(data => {
     // console.log(data);
     const events = data.events
     pintarChecks(events)
     filtrarEventos(events)
-    crearCardUpcoming(events)
-    superFiltroUpcoming(events)
+    crearCardPast(events)
+    superFiltroPast(events)
 
     buscador.addEventListener("keyup", () => {
-        superFiltroUpcoming(events)
+        superFiltroPast(events)
 
     })
     contenedorCheckbox.addEventListener('change', () => {
-        superFiltroUpcoming(events)
+        superFiltroPast(events)
     })
 })
